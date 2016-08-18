@@ -14,7 +14,7 @@ module Hangar
   end
 
   def validate_environment
-    Rails.env.test? or raise BadEnvironmentError, "Hangar should not be used in the #{Rails.env} environment"
+    !Rails.env.production? or raise BadEnvironmentError, "Hangar should not be used in the #{Rails.env} environment"
   end
   module_function :validate_environment
 end
